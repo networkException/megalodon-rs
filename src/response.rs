@@ -34,14 +34,10 @@ impl<T> Response<T> {
     {
         let header = response.headers().clone();
         let status_code = response.status();
-        let json = response.json::<T>().await?;
+        println!("Status: {}", status_code);
+        println!("Status: {:#?}", response.text().await?);
 
-        Ok(Self {
-            json,
-            status: status_code.as_u16(),
-            status_text: status_code.as_str().to_string(),
-            header,
-        })
+        todo!()
     }
 
     /// Get json object.
